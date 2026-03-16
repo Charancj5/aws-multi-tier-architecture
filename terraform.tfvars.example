@@ -1,0 +1,28 @@
+# ─────────────────────────────────────────────
+# terraform.tfvars — example values
+# Copy to terraform.tfvars and fill in secrets.
+# Never commit this file to version control.
+# ─────────────────────────────────────────────
+
+aws_region   = "us-east-1"
+project_name = "multi-tier-app"
+environment  = "dev"
+vpc_cidr     = "10.0.0.0/16"
+
+# Compute
+instance_type = "t3.medium"
+app_port      = 8080
+
+# Auto Scaling
+asg_desired = 2
+asg_min     = 1
+asg_max     = 6
+
+# RDS
+db_instance_class = "db.t3.medium"
+db_name           = "appdb"
+db_username       = "appuser"           # Replace with a real value; use Secrets Manager in prod
+db_password       = "CHANGEME_STRONG!"  # Replace with a real value; use Secrets Manager in prod
+
+# ACM
+acm_certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
